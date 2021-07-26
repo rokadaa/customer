@@ -22,5 +22,5 @@ jobs:
       run: ./gradlew bootBuildImage 
       env:
           url: 'https://ghcr.io'
-          username: '$${{ github.actor }}'
+          username: '${{ github.actor }}'
           password: '${{ secrets.GHCR_TOKEN }}'
