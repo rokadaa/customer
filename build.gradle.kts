@@ -45,6 +45,9 @@ tasks.withType<Test> {
 tasks.getByName<BootBuildImage>("bootBuildImage") {
     println("$project")
     println("${project.displayName}:${project.version}")
+    println("URL ${System.getenv("url")}")
+    println("Actor ${System.getenv("username")}")
+    println("Token ${System.getenv("password")}")
     println("URL ${System.getenv("GHCR_URL")}")
     println("Actor ${System.getenv("github.actor")}")
     println("Token ${System.getenv("GHCR_TOKEN")}")
