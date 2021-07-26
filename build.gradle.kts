@@ -51,7 +51,7 @@ tasks.getByName<BootBuildImage>("bootBuildImage") {
     println("URL ${System.getenv("GHCR_URL")}")
     println("Actor ${System.getenv("github.actor")}")
     println("Token ${System.getenv("GHCR_TOKEN")}")
-    imageName = imageName = "ghcr.io/rokadaa/${project.name}:${project.version}"
+    imageName = "ghcr.io/rokadaa/${project.name}:${project.version}"
     isPublish = true
     docker {
         publishRegistry {
