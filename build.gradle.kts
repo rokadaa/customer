@@ -55,9 +55,9 @@ tasks.getByName<BootBuildImage>("bootBuildImage") {
     isPublish = true
     docker {
         publishRegistry {
-            url = System.getenv("GHCR_URL")
-            username = System.getenv("github.actor")
-            password = System.getenv("GHCR_TOKEN")
+            url = System.getenv("url")
+            username = System.getenv("username")
+            password = System.getenv("password")
         }
     }
 }
