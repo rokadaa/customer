@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
     id("org.springframework.boot") version "2.5.2"
@@ -44,16 +45,16 @@ tasks.withType<Test> {
 tasks.getByName<BootBuildImage>("bootBuildImage") {
     println("$project")
     println("${project.displayName}:${project.version}")
-    println("URL ${System.getProperty("GHCR_URL")}")
-    println("Actor ${System.getProperty("github.actor")}")
-    println("Token ${System.getProperty("GHCR_TOKEN")}")
+    println("URL ${System.getenv("GHCR_URL")}")
+    println("Actor ${System.getenv("github.actor")}")
+    println("Token ${System.getenv("GHCR_TOKEN")}")
     imageName = "ghcr.io/rokadaa/cust:${project.version}"
     isPublish = true
     docker {
         publishRegistry {
-            url = System.getProperty("GHCR_URL")
-            username = System.getProperty("github.actor")
-            password = System.getProperty("GHCR_TOKEN")
+            url = System.getenv("GHCR_URL")
+            username = System.getenv("github.actor")
+            password = System.getenv("GHCR_TOKEN")
         }
     }
 }
